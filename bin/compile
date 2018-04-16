@@ -10,6 +10,10 @@ function indent() {
 
 ENV_DIR=${3:-}
 ssh_key="$(cat $ENV_DIR/SSH_KEY)"
+
+# This line is the author's edit - the buildpack was not able to detect hosts set in the
+# environment variables, and was just using the default git@github.com, which doesn't work
+# for us. Instead, just changed the default to git@gitlab.com.
 ssh_hosts=${SSH_HOSTS:-"git@gitlab.com"}
 
 if [ "$ssh_key" != "" ]; then
