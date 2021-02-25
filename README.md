@@ -1,6 +1,14 @@
 # ssh-private-key-buildpack - gitlab default
 
-This is an altered version of [https://github.com/debitoor/ssh-private-key-buildpack](https://github.com/debitoor/ssh-private-key-buildpack), which did not correctly pull hosts from the environment. This version is set to default to use the host git@gitlab.com, which is the only host that will work.
+This is an altered version of [https://github.com/debitoor/ssh-private-key-buildpack](https://github.com/debitoor/ssh-private-key-buildpack), which did not correctly pull hosts from the environment. This version is set to use both git@github.com and git@gitlab.com as hosts, so it'll correctly grab all necessary dependencies.
+
+Set this in your app's buildpacks like so:
+
+```bash
+heroku buildpacks:set -i 1 https://github.com/circles-learning-labs/ssh-private-key-buildpack --app APP_NAME_HERE
+```
+
+
 
 > (Original repo notes)
 
